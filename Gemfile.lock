@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dtrace_probe_simple (0.0.1)
+    dtrace_probe_simple (0.1.0.pre)
 
 GEM
   remote: https://rubygems.org/

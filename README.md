@@ -1,10 +1,10 @@
-# DtraceProbeSimple
+# DTraceProbeSimple
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dtrace_probe_simple`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+A PoC to include `DTRACE_PROBE*` in Ruby.
 
 ## Installation
+
+This is only available in Linux for now. Please install `systemtap-sdt-dev` (or alternatives) first.
 
 Add this line to your application's Gemfile:
 
@@ -22,7 +22,43 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+puts $$
+require "dtrace_probe_simple"
+self.extend DtraceProbeSimple
+
+loop do
+  probe(Object.new.inspect)
+  print "."
+  sleep 1
+end
+```
+
+```console
+$ ruby probe.rb
+9806
+.....
+```
+
+Now that USDT<ruby::ruby-probe> is available. You can get data from eBPF/BCC tools such as [mruby-bcc](https://github.com/udzura/mruby-bcc).
+
+```console
+$ sudo ./mruby/bin/mruby usdt_str.rb 9806
+TIME(s)            COMM             PID    ruby-probe
+10423.001144000    ruby             9806   #<Object:0x000056054df498b0>
+10424.006953000    ruby             9806   #<Object:0x000056054df497e8>
+10425.006879000    ruby             9806   #<Object:0x000056054df49720>
+10426.007019000    ruby             9806   #<Object:0x000056054df49608>
+10427.006803000    ruby             9806   #<Object:0x000056054df494f0>
+10428.007604000    ruby             9806   #<Object:0x000056054df49428>
+10429.016610000    ruby             9806   #<Object:0x000056054df49360>
+10430.017376000    ruby             9806   #<Object:0x000056054df49298>
+10431.017446000    ruby             9806   #<Object:0x000056054df491d0>
+10432.017105000    ruby             9806   #<Object:0x000056054df490b8>
+10433.017682000    ruby             9806   #<Object:0x000056054df48ff0>
+10434.017423000    ruby             9806   #<Object:0x000056054df48f28>
+10435.019250000    ruby             9806   #<Object:0x000056054df48e38>
+```
 
 ## Development
 

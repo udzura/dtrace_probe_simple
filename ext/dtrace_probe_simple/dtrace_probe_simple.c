@@ -16,6 +16,6 @@ Init_dtrace_probe_simple(void)
 {
   VALUE rb_mDtraceProbeSimple;
 
-  rb_mDtraceProbeSimple = rb_define_module("DtraceProbeSimple");
+  rb_mDtraceProbeSimple = rb_define_module("DTraceProbeSimple");
   rb_define_module_function(rb_mDtraceProbeSimple, "probe", rb_do_probe_simple, 1);
 }

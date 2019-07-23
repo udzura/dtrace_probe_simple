@@ -4,7 +4,7 @@ require "dtrace_probe_simple/version"
 
 Gem::Specification.new do |spec|
   spec.name          = "dtrace_probe_simple"
-  spec.version       = DtraceProbeSimple::VERSION
+  spec.version       = DTraceProbeSimple::VERSION
   spec.authors       = ["Uchio Kondo"]
   spec.email         = ["udzura@udzura.jp"]
 
