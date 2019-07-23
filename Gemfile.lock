@@ -1,0 +1,23 @@
+PATH
+  remote: .
+  specs:
+    dtrace_probe_simple (0.0.1)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (10.5.0)
+    rake-compiler (1.0.7)
+      rake
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (>= 1.6)
+  dtrace_probe_simple!
+  rake (~> 10.0)
+  rake-compiler
+
+BUNDLED WITH
+   1.16.1
