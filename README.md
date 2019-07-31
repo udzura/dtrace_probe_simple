@@ -25,7 +25,7 @@ Or install it yourself as:
 ```ruby
 puts $$
 require "dtrace_probe_simple"
-self.extend DtraceProbeSimple
+self.extend DTraceProbeSimple
 
 loop do
   probe(Object.new.inspect)
